@@ -4,7 +4,7 @@ project(c-data-structures C)
 
 
 include(CheckTypeSize)
-check_type_size(ssize_t HAVE_SSIZE)
+check_type_size(ssize_t HAVE_SSIZE_T)
 
 option(CDS_RUN_TESTS "Option to run tests" OFF)
 
@@ -14,6 +14,8 @@ target_include_directories(
     INTERFACE 
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
+
+
 
 if(CDS_RUN_TESTS)
    add_subdirectory(tests)

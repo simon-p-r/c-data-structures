@@ -23,13 +23,11 @@
 #include <stdlib.h>
 
 
-#ifndef HAVE_SSIZE
-#if defined (_MSC_VER)
-#if defined(_WIN64)
-typedef __int64 ssize_t;
-#else
-typedef long ssize_t;
-#endif
+#ifndef HAVE_SSIZE_T
+#ifndef _SSIZE_T_DEFINED
+typedef intptr_t ssize_t;
+#define _SSIZE_T_DEFINED
+#define SSIZE_MAX INTPTR_MAX
 #endif
 #else 
 #include <sys/types.h>
